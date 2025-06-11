@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BEMHOM STUDIO</title>
+    <script src="utils/pathManager.js"></script>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="components/carousel.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- 导航栏 -->
+    <nav class="navbar">
+        <div class="nav-brand">BEMHOM STUDIO</div>
+        <div class="nav-menu">
+            <a href="#home" class="nav-link">首页</a>
+            <a href="#app" class="nav-link">App</a>
+            <a href="#contact" class="nav-link">联系</a>
+            <a href="pages/privacy.html" class="nav-link">隐私政策</a>
+        </div>
+    </nav>
+
+    <!-- 主要内容 -->
+    <main>
+        <!-- 首页部分 -->
+        <section id="home" class="hero-section">
+            <div class="hero-content">
+                <div class="hero-left">
+                    <div id="carousel-container" class="carousel-container"></div>
+                </div>
+            </div>
+            <div class="hero-app-section">
+                <img src="images/appicon.svg" alt="App Icon" class="hero-app-icon">
+                <h2 class="hero-app-title">平行番茄钟</h2>
+                <h3 class="hero-app-subtitle">考研人士上岸专注神器</h3>
+                <div class="hero-app-features">
+                    <p class="hero-app-feature">简洁界面设计，移除繁琐</p>
+                    <p class="hero-app-feature">自定义模拟考试多重计时器</p>
+                    <p class="hero-app-feature">全局目标联动，每一步都为了目标</p>
+                </div>
+                <img src="images/AppComingsoon.svg" alt="Coming Soon" class="hero-app-store">
+            </div>
+        </section>
+
+        <!-- App部分 -->
+        <div id="app-container"></div>
+
+        <!-- 联系部分 -->
+        <div id="contact-container"></div>
+    </main>
+
+    <!-- 页脚 -->
+    <footer>
+        <p>&copy; 2025 BEMHOM STUDIO. All rights reserved.</p>
+        <p >本网站只作为产品展示用，不提供任何下载链接！</p>
+    </footer>
+
+    <script type="module">
+        import Carousel from './components/carousel.js';
+        
+        document.addEventListener('DOMContentLoaded', async () => {
+            // 初始化轮播图
+            const container = document.getElementById('carousel-container');
+            new Carousel(container);
+
+            // 加载 App 组件
+            try {
+                const response = await fetch('components/app.html');
+                const html = await response.text();
+                document.getElementById('app-container').innerHTML = html;
+            } catch (error) {
+                console.error('Error loading app component:', error);
+            }
+
+            // 加载联系组件
+            try {
+                const response = await fetch('components/contact.html');
+                const html = await response.text();
+                document.getElementById('contact-container').innerHTML = html;
+
+                // 初始化图标动画
+                const logoImages = document.querySelectorAll('.logo-image');
+                let currentIndex = 0;
+
+                setInterval(() => {
+                    logoImages[currentIndex].classList.remove('active');
+                    currentIndex = (currentIndex + 1) % logoImages.length;
+                    logoImages[currentIndex].classList.add('active');
+                }, 2000);
+            } catch (error) {
+                console.error('Error loading contact component:', error);
+            }
+        });
+    </script>
+</body>
+</html> 

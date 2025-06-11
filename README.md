@@ -1,16 +1,28 @@
-## Hi there 👋
+# Personal Website
 
-<!--
-**BemhomStudio/bemhomstudio** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
+This is my personal website hosted on GitHub Pages.
 
-Here are some ideas to get you started:
+## Features
 
-- 🔭 I’m currently working on ...
-- 🌱 I’m currently learning ...
-- 👯 I’m looking to collaborate on ...
-- 🤔 I’m looking for help with ...
-- 💬 Ask me about ...
-- 📫 How to reach me: ...
-- 😄 Pronouns: ...
-- ⚡ Fun fact: ...
--->
+- Responsive design
+- Modern UI
+- Easy to customize
+
+## Setup
+
+1. Clone this repository
+2. Make your changes
+3. Push to GitHub
+4. Enable GitHub Pages in your repository settings
+
+## Development
+
+To modify this website:
+
+1. Edit `index.html` for content
+2. Modify `styles.css` for styling
+3. Update `script.js` for interactive features
+
+## License
+
+MIT License 

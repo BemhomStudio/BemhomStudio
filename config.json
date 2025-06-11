@@ -1,0 +1,10 @@
+{
+    "basePath": "/bemhomstudio",
+    "assets": {
+        "images": "/images",
+        "components": "/components",
+        "pages": "/pages",
+        "styles": "/styles.css",
+        "scripts": "/script.js"
+    }
+} 
